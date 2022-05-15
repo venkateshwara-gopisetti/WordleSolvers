@@ -142,7 +142,7 @@ def convert_to_regex(guess: list, mask: list, output: list) -> list:
 # Global Variables
 # =============================================================================
 
-with open('src/corpus.txt','r') as f:
+with open('src/corpus.txt',encoding="utf-8", mode='r') as f:
     CORPUS = f.read().split('\n')
 
 # =============================================================================
@@ -156,10 +156,9 @@ class WordleServerTemplate:
     def __init__(self):
         """Generates a random task for the created WordleServer object
         """
-        # self.task = get_random_word(CORPUS)
+        self.task = get_random_word(CORPUS)
 
-    @staticmethod
-    def compare_words(guess:str) -> tuple:
+    def compare_words(self, guess:str) -> tuple:
         """Function to take an input as guess, compare with task and return the mask and flag
         to indicate if guess was correct or not.
         Mask is generated according to the following format -
@@ -176,7 +175,7 @@ class WordleServerTemplate:
             [...], False - when guess does not match the task and the mask is generated.
         """
         get_mask(guess)
-        comp_flag = True
+        comp_flag = get_mask(guess) or self.task
         mask_reduced = None
         return mask_reduced, comp_flag
 
