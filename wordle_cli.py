@@ -37,7 +37,7 @@ def main():
 
     wordleserver = WordleServer(args.task)
     bot = WordleBot()
-    total_iterations, _ = bot.solver1(server=wordleserver, verbose=args.verbose)
+    total_iterations, _, _ = bot.solver1(server=wordleserver, verbose=args.verbose)
     print("Total Iterations -",total_iterations)
 
 if __name__=="__main__":

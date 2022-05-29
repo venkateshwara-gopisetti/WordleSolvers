@@ -285,7 +285,7 @@ class WordleBot:
         # Increment count by 1 to account for the last guess.
         iteration += 1
         print("Solution is -", current_guess)
-        return iteration, current_guess
+        return iteration, current_guess, used_words
 
     @staticmethod
     def solver2():
@@ -302,7 +302,7 @@ class WordleBot:
 if __name__=='__main__':
     wordleserver = WordleServer()
     bot = WordleBot()
-    total_iterations, solution = bot.solver1(server=wordleserver)
+    total_iterations, solution, guess_stack = bot.solver1(server=wordleserver)
     print("Total Iterations -",total_iterations)
     print("Bot Solution -",solution)
     print("Server Task -",wordleserver.task)
