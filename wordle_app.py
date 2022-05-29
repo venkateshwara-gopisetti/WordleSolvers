@@ -74,7 +74,7 @@ class MYGUI(tk.Frame):
             self.text_area.insert(tk.END, '\n')
         self.text_area.insert(tk.END, answer)
         self.text_area.insert(tk.END, '\n')
-        self.text_area.insert(tk.END, "Total Iterations - %s"%total_iterations)
+        self.text_area.insert(tk.END, f"Total Iterations - {total_iterations}")
         self.text_area.insert(tk.END, '\n')
         # self.root.update()
         # Making the text read only
